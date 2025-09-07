@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IMDB LSTM – Tek Sayfa Eğitim & Sonuç Görselleştirme</title>
+  
+  <link rel="stylesheet" href="/static/imdb-lstm-onepage-beautify.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <header class="container header">
+    <h1>🎬 IMDB Yorum Sınıflandırma (LSTM)</h1>
+    <p>Tek sayfada eğitim başlat, metrikleri ve grafikleri canlı gör.</p>
+  </header>
+
+  <main class="container">
+    <section class="controls card">
+      <div class="row">
+        <div>
+          <label>Epochs</label>
+          <input id="epochs" type="number" min="1" value="5" />
+        </div>
+        <div>
+          <label>Batch Size</label>
+          <input id="batch" type="number" min="8" step="8" value="64" />
+        </div>
+        <div>
+          <label>Maxlen</label>
+          <input id="maxlen" type="number" min="50" step="50" value="500" />
+        </div>
+        <div>
+          <label>Vocab Size</label>
+          <input id="vocab" type="number" min="1000" step="1000" value="10000" />
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <label>Örnek Index 1</label>
+          <input id="sample1" type="number" min="0" value="13" />
+        </div>
+        <div>
+          <label>Örnek Index 2</label>
+          <input id="sample2" type="number" min="0" value="22" />
+        </div>
+      </div>
+      <div class="train-btn-wrapper">
+        <button id="trainBtn"><i class="fa-solid fa-rocket"></i> Eğitimi Başlat</button>
+      </div>
+
+      <span id="status"></span>
+    </section>
+
+    <section class="metrics">
+      <div class="card metric">
+        <h3>Accuracy</h3>
+        <div id="acc">—</div>
+      </div>
+      <div class="card metric">
+        <h3>F1 Score</h3>
+        <div id="f1">—</div>
+      </div>
+      <div class="card metric">
+        <h3>Precision</h3>
+        <div id="precision">—</div>
+      </div>
+      <div class="card metric">
+        <h3>Recall</h3>
+        <div id="recall">—</div>
+      </div>
+      <div class="card metric">
+        <h3>AUC</h3>
+        <div id="auc">—</div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Eğitim Özeti</h2>
+      <div class="row">
+        <div><strong>Eğitim Zamanı:</strong> <span id="trainedAt">—</span></div>
+        <div><strong>Parametreler:</strong> <span id="params">—</span></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Sınıf Dağılımı</h2>
+      <canvas id="classChart" height="120"></canvas>
+    </section>
+
+    <section class="card plots">
+      <h2>Eğitim Grafikler</h2>
+      <div class="plots-grid">
+        <figure>
+          <img id="lossImg" alt="Kayıp Grafiği" />
+          <figcaption>Model Kayıpları</figcaption>
+        </figure>
+        <figure>
+          <img id="accImg" alt="Doğruluk Grafiği" />
+          <figcaption>Model Doğruluğu</figcaption>
+        </figure>
+        <figure>
+          <img id="rocImg" alt="ROC Eğrisi" />
+          <figcaption>ROC Eğrisi</figcaption>
+        </figure>
+        <figure>
+          <img id="cmImg" alt="Konfüzyon Matrisi" />
+          <figcaption>Konfüzyon Matrisi</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Örnek İncelemeler</h2>
+      <div id="samples"></div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <small>2025 - Microsoft Intern </small>
+  </footer>
+
+  <script src="/static/app.js"></script>
+</body>
+
+</html>

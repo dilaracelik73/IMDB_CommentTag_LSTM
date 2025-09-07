@@ -1,0 +1,644 @@
+
+:root {
+  --bg: #0b1020;
+  --card: #111833;
+  --text: #e7ecff;
+  --muted: #aab3d0;
+  --accent: #6aa2ff;
+  --green: #35d07f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.header {
+  padding: 28px 0 12px;
+}
+
+.header h1 {
+  margin: 0 0 6px;
+  letter-spacing: 0.2px;
+}
+
+.header p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 16px;
+  margin: 16px 0;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+.controls .row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.controls label {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.controls input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0a1228;
+  color: var(--text);
+}
+
+.controls button {
+  background: var(--accent);
+  color: #07122a;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.controls #status {
+  margin-left: 12px;
+  color: var(--muted);
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.metric h3 {
+  margin: 0 0 6px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.metric div {
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.plots .plots-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.plots figure {
+  margin: 0;
+  background: #0c1329;
+  border-radius: 12px;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.plots img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+}
+
+.footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 20px 0 40px;
+}
+
+#samples {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.sample {
+  background: #0c1329;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.sample-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.badge {
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.badge.pos {
+  background: rgba(53, 208, 127, 0.15);
+  color: var(--green);
+  border: 1px solid rgba(53, 208, 127, 0.3);
+}
+
+.badge.neg {
+  background: rgba(255, 86, 86, 0.15);
+  color: #ff6464;
+  border: 1px solid rgba(255, 86, 86, 0.3);
+}
+
+@media (max-width: 920px) {
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .controls .row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .plots .plots-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+:root {
+    --bg: #0b0f14;
+    --bg-soft: #0f141b;
+    --panel: #121924;
+    --panel-2: #0f1620;
+    --text: #ffffff;
+    --muted: #ffffff;
+    --primary: #70a6ff;
+    --secondary: #82f2d1;
+    --accent: #ffd166;
+    --danger: #ff6b6b;
+    --radius: 16px;
+    --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+    --maxw: 1120px;
+    --space: clamp(16px, 3vw, 28px);
+}
+
+* {
+    box-sizing: border-box
+}
+
+html {
+    scroll-behavior: smooth
+}
+
+img,
+canvas {
+    max-width: 100%;
+    height: auto;
+    display: block
+}
+
+a {
+    color: inherit;
+    text-decoration: none
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    color: inherit
+}
+
+body {
+    margin: 0;
+    background:
+        radial-gradient(1400px 700px at 10% -10%, rgba(112, 166, 255, .12), transparent 45%),
+        radial-gradient(1200px 600px at 110% 10%, rgba(130, 242, 209, .10), transparent 45%),
+        var(--bg);
+    color: var(--text);
+    font: 400 16px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+h1 {
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.15;
+    margin: 0
+}
+
+h2 {
+    font-size: clamp(22px, 3vw, 30px);
+    line-height: 1.2;
+    margin: 0 0 10px
+}
+
+h3 {
+    font-size: clamp(18px, 2.2vw, 22px);
+    margin: 0 0 6px
+}
+
+p {
+    color: var(--muted);
+    margin: 6px 0 0
+}
+
+.container {
+    width: min(100%, var(--maxw));
+    margin-inline: auto;
+    padding-inline: var(--space)
+}
+
+.header {
+    padding: calc(var(--space)*1.8) 0 var(--space)
+}
+
+main.container {
+    padding-bottom: calc(var(--space)*2)
+}
+
+.section {
+    padding: calc(var(--space)*1.2) 0
+}
+
+.row {
+    display: grid;
+    gap: var(--space)
+}
+
+@media (min-width: 720px) {
+    .row {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+
+header.header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: linear-gradient(180deg, color-mix(in oklab, var(--bg), transparent 15%), transparent);
+    backdrop-filter: saturate(140%) blur(8px);
+    border-bottom: 1px solid color-mix(in oklab, var(--text), transparent 88%);
+}
+
+header.header h1 {
+  
+    
+    gap: .5rem;
+    text-align: center;
+}
+
+header.header p {
+    margin-top: 6px;
+    text-align: center;
+}
+
+.card {
+    background: linear-gradient(180deg, var(--panel), var(--panel-2));
+    border: 1px solid color-mix(in oklab, var(--text), transparent 86%);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: clamp(16px, 2.2vw, 22px);
+}
+
+.card+.card {
+    margin-top: var(--space)
+}
+
+@media (hover:hover) {
+    .card {
+        transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease
+    }
+
+    .card:hover {
+        transform: translateY(-2px);
+        border-color: color-mix(in oklab, var(--text), transparent 76%)
+    }
+}
+
+.controls { position: relative; }
+
+.controls .row {
+  display: grid;
+  gap: clamp(14px, 2vw, 18px);
+  align-items: end;
+}
+@media (min-width: 900px){
+  .controls .row { grid-template-columns: 1fr 1fr; }
+}
+
+.controls label {
+  display: block;
+  font-weight: 650;              
+  color: var(--text);            
+  letter-spacing: .2px;
+  font-size: .9rem;
+  margin-bottom: 6px;
+}
+
+.controls input[type="number"],
+.controls input[type="text"],
+.controls select {
+  width: 100%;
+  border: 1px solid color-mix(in oklab, var(--text), transparent 82%);
+  background: color-mix(in oklab, var(--panel), transparent 8%);
+  padding: 12px 14px;
+  border-radius: 12px;
+  outline: none;
+  color: var(--text);
+  font-weight: 700;             
+  font-variant-numeric: tabular-nums; 
+}
+.controls input:focus,
+.controls select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px color-mix(in oklab, var(--primary), transparent 80%);
+}
+
+
+.controls input::placeholder{
+  font-weight: 700;
+  color: color-mix(in oklab, var(--text), transparent 50%);
+}
+
+
+.train-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+#trainBtn {
+  display: inline-flex;              
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 12px 36px;
+  border-radius: var(--radius);
+  border: 1px solid color-mix(in oklab, var(--text), transparent 70%);
+  background: linear-gradient(180deg,
+    color-mix(in oklab, #d3c313, black 10%),
+    color-mix(in oklab, #e3e012, black 22%)
+  );
+
+  color: #0b0f14;                    
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: .2px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, .25);
+  transition: transform .15s ease, box-shadow .15s ease, filter .2s ease;
+}
+#trainBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .35);
+  filter: brightness(1.05);
+}
+#trainBtn:active { transform: translateY(1px); }
+
+
+#status {
+  display: block;
+  margin-top: 10px;
+  color: var(--accent);
+  font-weight: 600;
+  align-items: center;
+}
+
+.metrics {
+    display: grid;
+    gap: var(--space);
+    margin-top: var(--space)
+}
+
+@media (min-width: 720px) {
+    .metrics {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+}
+
+.metric {
+    text-align: center
+}
+
+.metric h3 {
+    color: var(--muted);
+    font-weight: 600
+}
+
+.metric>div {
+    font-size: clamp(20px, 3.4vw, 28px);
+    font-weight: 800;
+    margin-top: 6px
+}
+
+
+.metrics .card {
+  margin-top: 0 !important;  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;          
+  text-align: center;
+}
+
+
+.card .row {
+    grid-template-columns: 1fr 1fr
+}
+
+.card .row div {
+    background: color-mix(in oklab, var(--panel), transparent 0%);
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid color-mix(in oklab, var(--text), transparent 90%)
+}
+
+.card .row strong {
+    color: var(--muted);
+    font-weight: 600
+}
+
+
+.param-list{
+  list-style:none; margin:0; padding:0; display:grid; gap:8px;
+}
+.param-list li{
+  display:flex; align-items:center; justify-content:space-between;
+  background: color-mix(in oklab, var(--panel), transparent 6%);
+  border: 1px solid color-mix(in oklab, var(--text), transparent 88%);
+  border-radius: 10px; padding: 8px 12px;
+}
+.param-list li span{ color: var(--muted) }
+.param-list li b{ color: var(--text); font-weight: 700 }
+
+
+#classChart {
+     background: linear-gradient(
+    180deg,
+    color-mix(in oklab, var(--panel), transparent 6%),
+    transparent
+  );
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.2); 
+}
+
+.plots .plots-grid{
+  display: grid;
+  gap: calc(var(--space) * 1.2);
+  align-items: stretch;
+  grid-auto-rows: 1fr;                
+}
+@media (min-width: 880px){
+  .plots .plots-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+}
+
+
+.plots figure{
+  height: 100%;
+  min-height: clamp(340px, 42vw, 560px);  
+  display: grid;
+  grid-template-rows: 1fr auto;           
+  background: color-mix(in oklab, var(--panel), transparent 4%);
+  border: 1px solid color-mix(in oklab, var(--text), transparent 86%);
+  border-radius: 18px;                     
+  padding: 14px;
+  box-shadow: var(--shadow);
+}
+
+
+.plots img{
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3;                    
+  object-fit: contain;
+  background: color-mix(in oklab, var(--panel), transparent 10%);
+  border-radius: 12px;
+}
+
+
+.plots figcaption{
+  text-align: center;
+  padding: 12px 10px 6px;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 1rem;
+  border-top: 1px solid color-mix(in oklab, var(--text), transparent 90%);
+}
+
+#samples {
+    display: grid;
+    gap: var(--space)
+}
+
+@media (min-width: 760px) {
+    #samples {
+        grid-template-columns: 1fr 1fr
+    }
+}
+
+#samples .sample {
+    background: color-mix(in oklab, var(--panel), transparent 6%);
+    border: 1px solid color-mix(in oklab, var(--text), transparent 86%);
+    border-radius: 12px;
+    padding: 14px;
+    box-shadow: var(--shadow)
+}
+
+#samples .sample .label {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid color-mix(in oklab, var(--text), transparent 75%);
+    margin-bottom: 8px;
+    color: var(--muted)
+}
+
+#samples .sample .pred-pos {
+    color: #1dd1a1
+}
+
+#samples .sample .pred-neg {
+    color: #ff6b6b
+}
+
+.footer {
+    padding: 40px 0;
+    color: var(--muted);
+    border-top: 1px solid color-mix(in oklab, var(--text), transparent 90%)
+}
+
+
+[id] {
+    scroll-margin-top: 84px
+}
+
+
+:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+    border-radius: 10px
+}
+
+
+body.loading #trainBtn {
+    filter: grayscale(.2) brightness(.8);
+    pointer-events: none
+}
+
+body.loading #status {
+    color: var(--secondary)
+}
+
+
+.card h2+* {
+    margin-top: 6px
+}
+
+.section .container>*+* {
+    margin-top: var(--space)
+}
+
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: #f6f8fb;
+        --bg-soft: #eef2f7;
+        --panel: #ffffff;
+        --panel-2: #fbfdff;
+        --text: #0b1220;
+        --muted: #475569;
+        --shadow: 0 10px 25px rgba(0, 0, 0, .08)
+    }
+
+    header.header {
+        background: linear-gradient(180deg, #ffffffcc, #ffffff10)
+    }
+}
